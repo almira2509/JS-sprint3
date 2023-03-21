@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+       <head>
+        <title>Sprint3</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+        <body>
+          <div class="main">
+            <div class="1">
+                <h5>Введите сумму:</h5><br>
+                <input type="number" id="sum" onclick="getValue()">
+                <select style="width: 50px" id="val" onclick="getValue()">
+                <option value="KZT">KZT</option>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                </select>
+            </div>
+
+            <div>
+                 <h5>KZT (tenge)</h5><br>
+                 <input  id="blc2" type="text" value="-">
+            </div>
+            
+            <div>
+                <h5>USD (dollar)</h5><br>
+                 <input id="blc3" type="text" value="-">
+            </div>             
+            
+            <div>
+                <h5>EUR (euro)</h5><br>
+                 <input id="blc4" type="text" value="-">
+            </div>  
+          </div>
+
+          <script>
+            let a = 0;
+            let b = 'KZT';
+            let elem1 = document.getElementById("blc2");
+            let elem2 = document.getElementById("blc3");
+            let elem3 = document.getElementById("blc4");
+          
+            function getValue(){
+              let a = sum.value;
+              let b = val.value;
+              if (b=='KZT') {
+                let x1=Math.round(parseFloat(a/431)*100)/100;
+                let x2=Math.round(parseFloat(a/509)*100)/100;
+                elem1.value='-';
+                elem2.value=x1;
+                elem3.value=x2;
+              }
+              else if (b=='USD'){
+                let x1=Math.round(parseFloat(a*429)*100)/100;
+                let x2=Math.round(parseFloat(a*429/509)*100)/100;
+                elem1.value=x1;
+                elem2.value='-';
+                elem3.value=x2;
+              }
+              else {
+                let x1=Math.round(parseFloat(a*507)*100)/100;
+                let x2=Math.round(parseFloat(a*507/431)*100)/100;
+                elem1.value=x1;
+                elem2.value=x2;
+                elem3.value='-';
+              }
+              }
+            </script>
+        </body>
+
+</html>
